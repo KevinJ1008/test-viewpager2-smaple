@@ -3,6 +3,7 @@ package com.kevinj1008.testviewpager2sample.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.kevinj1008.testviewpager2sample.customview.transformer.ScaleTransformer
 import com.kevinj1008.testviewpager2sample.databinding.LayoutTestGalleryBinding
 
 class TestRecyclerViewAdapter : RecyclerView.Adapter<TestRecyclerViewAdapter.ViewHolder>() {
@@ -13,7 +14,14 @@ class TestRecyclerViewAdapter : RecyclerView.Adapter<TestRecyclerViewAdapter.Vie
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("Implement gallery view and behavior")
+        val adapter = TestGalleryAdapter()
+        val transFormer = ScaleTransformer()
+        holder.viewPager.apply {
+            isInfiniteLoop = true
+            setPageTransformer(transFormer)
+            setAdapter(adapter)
+            setAutoScroll(3000)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -21,7 +29,7 @@ class TestRecyclerViewAdapter : RecyclerView.Adapter<TestRecyclerViewAdapter.Vie
     }
 
     class ViewHolder(binding: LayoutTestGalleryBinding) : RecyclerView.ViewHolder(binding.root) {
-        //TODO: get gallery view
+        val viewPager = binding.viewpagerGallery
     }
 
 }

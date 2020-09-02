@@ -10,7 +10,7 @@ class TestFragmentStateAdapter(
 ) : FragmentStateAdapter(activity) {
 
     override fun getItemCount(): Int {
-        return 3
+        return 5
     }
 
     override fun createFragment(position: Int): Fragment {

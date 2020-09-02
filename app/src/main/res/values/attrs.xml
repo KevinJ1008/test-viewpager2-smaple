@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="InfiniteLoopViewPager">
+        <attr name="autoScroll" format="integer"/>
+        <attr name="infiniteLoop" format="boolean"/>
+    </declare-styleable>
+</resources>
